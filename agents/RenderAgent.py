@@ -4,6 +4,7 @@ RenderAgent Module
 Hanterar all visuell presentation och användarinteraktion.
 """
 
+# Ta bort
 from typing import Dict, Any, List
 from rich.console import Console
 from rich.panel import Panel

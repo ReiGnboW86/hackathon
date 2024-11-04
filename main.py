@@ -4,6 +4,7 @@ Main Module
 Startpunkt för applikationen.
 """
 
+# Ta bort
 from agents.GameEngine import GameEngine
 
 

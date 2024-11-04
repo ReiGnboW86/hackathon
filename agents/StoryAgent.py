@@ -9,6 +9,7 @@ Detta modul innehåller:
 - StoryAgent: Swarm Agent som koordinerar story-genereringen
 """
 
+# Ta bort
 from swarm import Agent
 from typing import Dict, Any, List
 import openai
@@ -58,9 +59,9 @@ class StoryGenerator:
         scene_data = self._parse_ai_response(response)
         self._update_context(scene_data, last_choice)
 
-        # Lägg alltid till ett avslutningsalternativ
+        # Lägg till avslutningsalternativ utan att skriva ut något
         scene_data["choices"].append("Avsluta äventyret")
-        return scene_data
+        return scene_data  # Bara returnera data, ingen utskrift
 
     def _build_story_prompt(self, last_choice: str = None) -> str:
         if not self.story_context:
@@ -136,17 +137,8 @@ class StoryManager:
         self.generator = StoryGenerator()
 
     def get_next_scene(self, player_choice: str = None) -> Dict[str, Any]:
+        # Bara returnera data, ingen utskrift
         return self.generator.generate_next_scene(player_choice)
-
-
-# Skapa StoryAgent med den nya strukturen
-StoryAgent = Agent(
-    name="StoryAgent",
-    instructions="""Du är en storytelling agent som genererar dynamiska och
-    sammanhängande fantasy-äventyr. Du skapar engagerande scener och
-    ger spelaren exakt tre meningsfulla val i varje situation.""",
-    functions=[StoryManager().get_next_scene],
-)
 
 
 """
