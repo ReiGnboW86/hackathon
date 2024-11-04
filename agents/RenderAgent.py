@@ -4,7 +4,7 @@ import time
 
 
 # Function for RenderAgent to display text with a typewriter effect
-def print_with_effect(text: str, delay: float = 0.03):
+def print_with_effect(text: str, delay: float = 0.01):
     """
     Print text with a typewriter effect
 
